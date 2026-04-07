@@ -3,10 +3,6 @@ import java.util.List;
 
 public class OnlineBookingPlatformDemo {
     public static void main(String[] args) {
-        System.out.println("═══════════════════════════════════════════════════════════════");
-        System.out.println("        ONLINE BOOKING PLATFORM - STRUCTURAL DESIGN PATTERNS");
-        System.out.println("═══════════════════════════════════════════════════════════════\n");
-
         SearchService searchService = new SearchService();
         InventoryService inventoryService = new InventoryService();
         BookingService bookingService = new BookingService(inventoryService);
@@ -52,15 +48,11 @@ public class OnlineBookingPlatformDemo {
         bookingService.processPayment(refundable.getId(), paypal);
         bookingService.cancelBooking(refundable.getId());
         System.out.println("  [BOOKING] " + refundable + " | state=" + refundable.getStateName());
-
-        System.out.println("\n═══════════════════════════════════════════════════════════════");
         System.out.println("DESIGN PATTERNS IMPLEMENTED");
-        System.out.println("═══════════════════════════════════════════════════════════════");
         System.out.println("1. STATE PATTERN -> BookingState + concrete states");
         System.out.println("2. STRATEGY PATTERN -> PaymentGateway implementations");
         System.out.println("3. FACTORY PATTERN -> PaymentGatewayFactory");
         System.out.println("4. OBSERVER PATTERN -> BookingObserver notifications");
         System.out.println("5. SERVICE LAYER -> Search, Inventory, Booking services");
-        System.out.println("═══════════════════════════════════════════════════════════════");
     }
 }
